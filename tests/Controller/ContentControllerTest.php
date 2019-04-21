@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ContentControllerTest extends WebTestCase
 {
-    public function testShowConent()
+    public function testShowContent()
     {
         $client = static::createClient();
 		$client->request(
@@ -24,7 +24,7 @@ class ContentControllerTest extends WebTestCase
     }
 
 
-    public function testShowAllConents()
+    public function testShowAllContents()
     {
         $client = static::createClient();
         $client->request(
@@ -40,7 +40,7 @@ class ContentControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
-    public function testAddConent()
+    public function testAddContent()
     {
         $client = static::createClient();
 		$client->request(
