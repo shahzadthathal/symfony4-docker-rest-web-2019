@@ -10,3 +10,8 @@
 .idea
 .docker/data/
 ###< romaricp ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###

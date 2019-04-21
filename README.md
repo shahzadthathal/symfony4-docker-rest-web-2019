@@ -85,4 +85,6 @@ docker exec -it sf4_2019_mysql bash
 
 mysql -uroot -proot
 
+#PHP Unit Tests
+phpunit
 ```
