@@ -30,10 +30,12 @@ class ContentCheckerCommand extends Command
     {
     	$em = $this->container->get('doctrine')->getManager();
         
-        $items = $em->createQuery('SELECT id,email FROM App\Entity\Content c WHERE c.date_created >= (NOW() - INTERVAL 5 MINUTE) AND status = "Pending"')
+        $items = $em->createQuery('SELECT id,email FROM App\Entity\Content c WHERE date(created_at) >= NOW() - INTERVAL 5 MINUTE AND status = "Pending"')
 	        ->getResult();
 
         echo count($items);
+
+        #Send email if any content not approved with in 5 minutes
 
     }
 }
