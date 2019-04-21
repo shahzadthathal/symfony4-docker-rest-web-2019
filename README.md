@@ -1,53 +1,66 @@
-# smyfony4-docker-rest-web-2019
+# Smyfony 4 with docker and Rest + Web 2019
 
-Git clone:
+## Quick Start
+
+``` bash
+#Git clone:
 git clone https://github.com/shahzadthathal/symfony4-docker-rest-web-2019.git
 
+#Change dir
 cd symfony4-docker-rest-web-2019/
 
-Add an entory to /etc/hosts
+#Add an entory to /etc/hosts
 127.0.1.1 sf4.local
 
+#Dcoker build
 docker-compose build
 
+#Docker up
 docker-compose up -d
 
-If you are on ubutnu then change data user with your www user group or give data folder write permission.
+#If you are on ubutnu then change data user with your www user group or give data folder write permission.
 sudo chown shahzad:shahzad -R .docker/data/
 
-Launch php bash
+#Launch php bash
 docker exec -it -u dev sf4_2019_php bash
 
-Change directory
+#Change directory
 cd sf4
 
-Install dependencies
+#Install dependencies
 composer install
 
 
-Copy .env.dist to .env and this connection url
+#Copy .env.dist to .env and update this connection url
 DATABASE_URL=mysql://sf4:sf4@mysql:3306/sf4
 
-Create database:
+#Create database:
 php bin/console doctrine:database:create
 
-Make migrations
+#Make migrations
 php bin/console make:migration
+
 php bin/console doctrine:migrations:migrate
 
-Add some fixture data
+#Add some fixture data
 php bin/console doctrine:fixtures:load
 
-If everything went okay:
+#If everything went okay:
 http://sf4.local/login
+
 Admin login:
+
 admin@app.com
+
 123456
 
-API endpoints
+#API endpoints
 Add content, post a josn data and also add a dummy token in header:
+
 Url: http://sf4.local/api/content
+
 Header: x-auth-token : xyz
+
 Body:
 {
   "title":"My title",
@@ -56,16 +69,20 @@ Body:
   "email":"xyz@app.com"
 }
 
-Get contents:
+#Get contents:
 http://sf4.local/api/contents
+
 Header: x-auth-token : xyz
 
-Get single content:
+#Get single content:
 http://sf4.local/api/content/3
+
 Header: x-auth-token : xyz
 
 
-If you want to use mysql:
+#If you want to use mysql:
 docker exec -it sf4_2019_mysql bash
+
 mysql -uroot -proot
 
+```
