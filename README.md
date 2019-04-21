@@ -34,12 +34,11 @@ composer install
 #Copy .env.dist to .env and update this connection url
 DATABASE_URL=mysql://sf4:sf4@mysql:3306/sf4
 
-#Create database:
-php bin/console doctrine:database:create
 
 #Make migrations
 php bin/console make:migration
 
+#Run migrations
 php bin/console doctrine:migrations:migrate
 
 #Add some fixture data
