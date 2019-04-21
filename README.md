@@ -18,7 +18,7 @@ docker-compose build
 #Docker up
 docker-compose up -d
 
-#If you are on ubutnu then change data user with your www user group or give data folder write permission.
+#If you are on Ubuntu then change .docker/data dir owner with your www user group or give data folder write permission.
 sudo chown shahzad:shahzad -R .docker/data/
 
 #Launch php bash
