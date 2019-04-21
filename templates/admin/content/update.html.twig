@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Content | Admin{% endblock %}
+
+{% block body %}
+
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Update Content</h1>
+
+
+        {{ form_start(form) }}
+    	
+    	{% if not form.vars.valid %}
+            <div class="alert alert-danger">
+                {{ form_errors(form) }}
+            </div>
+        {% endif %}
+
+              
+        <div class="form-group">
+	        {{ form_label(form.title, 'Title') }}
+	        {{ form_errors(form.title) }}
+	        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+    	</div>
+
+        <div class="form-group">
+            {{ form_label(form.description, 'Description') }}
+            {{ form_errors(form.description) }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.content, 'Content') }}
+            {{ form_errors(form.content) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+    	<div class="form-group">
+	        {{ form_label(form.status, 'Status') }}
+	        {{ form_errors(form.status) }}
+	        {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+    	</div>
+  
+
+         {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

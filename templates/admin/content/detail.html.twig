@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail Content | Admin{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">Content Detail</h1>
+
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-info">{{ item.title}}</li>
+        
+        <li class="list-group-item">Status: <strong>{{ item.status == 1 ? 'Active' : 'In Active'}}</strong></li>
+
+        <li class="list-group-item">{{ item.email}}</li>
+
+        <li class="list-group-item">{{ item.content}}</li>
+        
+        <li class="list-group-item">
+            {{ item.description|raw }}
+        </li>
+
+         <li class="list-group-item">
+            Date: <strong>{{ item.createdAt|date("Y-m-d H:i:s") }}</strong>
+        </li>
+
+         <li class="list-group-item">
+            Date: <strong>{{ item.updatedAt|date("Y-m-d H:i:s") }}</strong>
+        </li>
+
+
+      </ul>
+    
+      <a href="{{ path('admin_contents')}}" class="btn btn-primary btn-small">View Listing</a>
+
+{% endblock %}

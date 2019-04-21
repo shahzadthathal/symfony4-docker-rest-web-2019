@@ -1,0 +1,12 @@
+{# templates/emails/content-notification.html.twig #}
+<h3>Content update notification</h3>
+
+Hi 
+<br>
+
+Your content {{ title }} status has been changed to {{status}}.
+
+{# example, assuming you have a route named "login" #}
+To login, go to: <a href="{{ url('app_login') }}">...</a>.
+
+Thanks!
