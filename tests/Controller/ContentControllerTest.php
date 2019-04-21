@@ -10,22 +10,51 @@ class ContentControllerTest extends WebTestCase
     public function testShowConent()
     {
         $client = static::createClient();
-
-        $client->request('GET', '/api/content/3');
-
-         $client->request(
+		$client->request(
 	        'GET',
 	        '/api/content/3',
 	        [],
 	        [],
 	        [
-	            #'HTTP_Host'            => 'sf4.local',
-	            #'REMOTE_ADDR'          => '127.0.0.1',
-	            'x-auth-token' => 'xyz',
+	            'HTTP_X-AUTH-TOKEN' => 'xyz',
 	        ]
 	    );
 
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+
+    public function testShowAllConents()
+    {
+        $client = static::createClient();
+        $client->request(
+	        'GET',
+	        '/api/contents',
+	        [],
+	        [],
+	        [
+	            'HTTP_X-AUTH-TOKEN' => 'xyz',
+	        ]
+	    );
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testAddConent()
+    {
+        $client = static::createClient();
+		$client->request(
+	        'POST',
+	        '/api/content',
+	        [],
+	        [],
+	        [
+	        	'CONTENT_TYPE' => 'application/json',
+	            'HTTP_X-AUTH-TOKEN' => 'xyz',
+	        ],
+	        '{"title":"My title from unit test","description":"My description from unit test","content":"My content from unit test","email":"xyz@app.com"}'
+	    );
+		
+        $this->assertEquals(201, $client->getResponse()->getStatusCode());
     }
 }
