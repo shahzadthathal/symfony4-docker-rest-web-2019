@@ -9,7 +9,7 @@ git clone https://github.com/shahzadthathal/symfony4-docker-rest-web-2019.git
 #Change dir
 cd symfony4-docker-rest-web-2019/
 
-#Add an entory to /etc/hosts
+#Add an entry to /etc/hosts
 127.0.1.1 sf4.local
 
 #Dcoker build
@@ -46,20 +46,14 @@ php bin/console doctrine:fixtures:load
 
 #If everything went okay:
 http://sf4.local/login
-
 Admin login:
-
 admin@app.com
-
 123456
 
 #API endpoints
 Add content, post a josn data and also add a dummy token in header:
-
 Url: http://sf4.local/api/content
-
 Header: x-auth-token : xyz
-
 Body:
 {
   "title":"My title",
@@ -70,18 +64,14 @@ Body:
 
 #Get contents:
 http://sf4.local/api/contents
-
 Header: x-auth-token : xyz
 
 #Get single content:
 http://sf4.local/api/content/3
-
 Header: x-auth-token : xyz
-
 
 #If you want to use mysql:
 docker exec -it sf4_2019_mysql bash
-
 mysql -uroot -proot
 
 #PHP Unit Tests
