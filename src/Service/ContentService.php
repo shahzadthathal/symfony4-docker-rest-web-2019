@@ -37,7 +37,7 @@ final class ContentService
     public function addContent(Content $content): Content
     {
         $this->contentRepository->save($content);
-        return $article;
+        return $content;
     }
 
     /**
